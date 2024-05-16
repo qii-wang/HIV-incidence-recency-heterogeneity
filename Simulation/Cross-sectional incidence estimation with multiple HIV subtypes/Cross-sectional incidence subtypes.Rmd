@@ -1,5 +1,5 @@
 ---
-title: "Simulation of Adjustment for HIV Subtype"
+title: "Cross-sectional incidence estimation with multiple subtypes"
 author: "Qi Wang"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -7,6 +7,12 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+if(!require(XSRecency)){
+  devtools::install("/Users/qi/Desktop/GitHub/HIV-incidence-recency-heterogeneity/XSRecency-pt-functions") 
+}
 ```
 
 ```{r}

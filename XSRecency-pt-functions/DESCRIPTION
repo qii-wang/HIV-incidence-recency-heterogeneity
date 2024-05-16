@@ -1,0 +1,19 @@
+Package: XSRecency
+Type: Package
+Title: Cross-Sectional Incidence Estimation
+Version: 0.1.0
+Author: Fei Gao, [Marlena Bannick](https://www.marlenabannick.com/)
+Maintainer: Marlena Bannick <mnorwood@uw.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT
+Encoding: UTF-8
+LazyData: false
+RoxygenNote: 7.1.2
+Imports: 
+    stats,
+    utils,
+    magrittr,
+    data.table
+Depends: 
+    R (>= 2.10)

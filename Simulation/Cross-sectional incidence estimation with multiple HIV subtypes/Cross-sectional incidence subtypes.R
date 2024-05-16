@@ -1,3 +1,7 @@
+if(!require(XSRecency)){
+  devtools::install("/Users/qi/Desktop/GitHub/HIV-incidence-recency-heterogeneity/XSRecency-pt-functions") 
+}
+
 library(XSRecency)
 library(geepack)
 library(data.table)
