@@ -83,7 +83,6 @@ simulate_beta_studies = function(nsims, n_long_infect, phi.func, minT, maxT){
 }
 ```
 
-
 ```{r}
 get_panel_data = function(n_sims, sample_size_screen, profiles_screen, 
                           infection.function, bigT){
