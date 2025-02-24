@@ -151,7 +151,6 @@ get_panel_trial = function(n_sims, sample_size_trial, profiles_trial, follow_tim
 }
 ```
 
-
 # Estimate incidence in target population
 ```{r}
 est_background_incidence = function(n_sims, bigT_crossSec,
