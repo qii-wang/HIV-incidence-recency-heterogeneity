@@ -15,7 +15,7 @@ if(!require(XSRecency)){
 }
 ```
 
-# Generating panel data for screening population
+# Generating data for cross sectional and target (trial) populations
 ```{r}
 library(XSRecency)
 library(geepack)
@@ -138,7 +138,7 @@ get_panel_data = function(n_sims, sample_size_screen, profiles_screen,
 ```
 
 
-# Estimate the incidence ratio
+# Estimate incidence in target population and efficacy
 ```{r}
 est_incidence = function(n_sims, sample_size_screen,
                                panel_data, beta_ests, omega_ests,
@@ -340,6 +340,7 @@ est_incidence = function(n_sims, sample_size_screen,
 ```
 
 
+# Simulate additional studies for estimating FRR and MDRI
 ```{r}
 simulate_beta_study = function(n_long_infect, phi.func, minT, maxT){
   N = n_long_infect
@@ -361,6 +362,7 @@ simulate_beta_studies = function(nsims, n_long_infect, phi.func, minT, maxT){
 ```
 
 
+# Summarize results
 ```{r}
 nsim_ests_bs = function(weight_methods, path){
   true_lambda0 = sum(panel_data_res$trial_proportion * profiles_screen$Incidence)/sum(panel_data_res$trial_proportion)
@@ -492,7 +494,7 @@ nsim_ests_bs = function(weight_methods, path){
 
 ```
 
-
+# Run the simulations
 ```{r}
 library(readr)
 set.seed(1024)
@@ -556,11 +558,10 @@ for(size in c("largeSize", "smallSize")){
     sample_size_trial = 1250
     out_path = "./NoSubtype_BS_ParBS_smallSize/"
   }
-  panel_data_res = get_panel_data(n_sims, sample_size_screen, profiles_screen, 
-                          infection.function, phi.func, bigT_screen, 
+  panel_data_res = get_panel_data(n_sims, sample_size_screen, profiles_screen,
+                          infection.function, phi.func, bigT_screen,
                           sample_size_trial, profiles_trial, follow_time)
   panel_data = panel_data_res$panel_data
   nsim_ests_bs(weight_methods, out_path)
 }
-
 ```

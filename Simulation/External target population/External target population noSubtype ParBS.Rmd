@@ -15,7 +15,7 @@ if(!require(XSRecency)){
 }
 ```
 
-# Generating panel data for crossSecing population
+# Generating data for cross sectional and target (trial) populations
 ```{r}
 library(XSRecency)
 library(geepack)
@@ -152,7 +152,7 @@ get_panel_trial = function(n_sims, sample_size_trial, profiles_trial, follow_tim
 ```
 
 
-# Estimate the incidence ratio
+# Estimate incidence in target population
 ```{r}
 est_background_incidence = function(n_sims, bigT_crossSec,
                                sample_size_crossSec, sample_size_trial,
@@ -376,7 +376,7 @@ est_background_incidence = function(n_sims, bigT_crossSec,
 }
 ```
 
-
+# Simulate additional studies for estimating FRR and MDRI
 ```{r}
 simulate_beta_study = function(n_long_infect, phi.func, minT, maxT){
   N = n_long_infect
@@ -397,6 +397,7 @@ simulate_beta_studies = function(nsims, n_long_infect, phi.func, minT, maxT){
 }
 ```
 
+# Summarize results
 ```{r}
 nsim_background_incidence_ests_bs = function(weight_methods, path){
   true_lambda0 = sum(profiles_crossSec$Incidence * profiles_trial$Proportion)
@@ -506,6 +507,7 @@ nsim_background_incidence_ests_bs = function(weight_methods, path){
 }
 ```
 
+# Run the simulations
 ```{r}
 set.seed(1024)
 library(readr)
